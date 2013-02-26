@@ -9,6 +9,8 @@
   <classpathentry path="/home/james/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar" kind="lib"></classpathentry>
   <classpathentry path="/home/james/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.6.jar" kind="lib"></classpathentry>
   <classpathentry path="/home/james/.ivy2/cache/org.scalatest/scalatest_2.9.2/jars/scalatest_2.9.2-1.9.1.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/james/.ivy2/cache/org.scalamock/scalamock-scalatest-support_2.9.2/jars/scalamock-scalatest-support_2.9.2-2.4.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/james/.ivy2/cache/org.scalamock/scalamock-core_2.9.2/jars/scalamock-core_2.9.2-2.4.jar" kind="lib"></classpathentry>
   <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"></classpathentry>
   <classpathentry path="bin" kind="output"></classpathentry>
 </classpath>
