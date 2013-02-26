@@ -23,7 +23,7 @@ class Input {
     var line : String = buffer.readLine()
     
     while (line != null && !"-1".equals(line)) {
-    	sites += line
+    	this += line
     	line = buffer.readLine()
     }
   }
@@ -34,4 +34,15 @@ class Input {
    * Return the site at the given index.
    */
   def get(index : Int) : String = sites(index)
+  
+  /**
+   * Add a new site to the list of sites
+   */
+  def += (site : String) = {
+    if (site.contains("://")) {
+      throw new IllegalArgumentException("invalid input recieved, websites should not include the http:// prefix")
+    } else {
+      sites += site
+    }
+  }
 }

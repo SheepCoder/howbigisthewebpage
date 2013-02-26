@@ -57,4 +57,17 @@ class InputSpec extends FlatSpec with ShouldMatchers with GivenWhenThen {
     then("there is no address")
     input.size should equal (0)
   }
+  
+  it should "reject any websites which already have a http:// prefex" in {
+    given("a new input")
+    var input = new Input
+    
+    when("a website is given with an http:// prefix")
+    val thrown = intercept[IllegalArgumentException] {
+    	input.read(new java.io.StringReader("http://www.google.co.uk\n"));
+    }
+    
+    then("an error is thrown with the expected message")
+    thrown.getMessage should equal ("invalid input recieved, websites should not include the http:// prefix")
+  }
 }
