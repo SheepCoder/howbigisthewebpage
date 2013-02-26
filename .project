@@ -1,5 +1,5 @@
 <projectDescription>
-  <name>howbitisthewebpage</name>
+  <name>howbigisthewebpage</name>
   <buildSpec>
     <buildCommand>
       <name>org.scala-ide.sdt.core.scalabuilder</name>
