@@ -19,7 +19,7 @@ class Webpage(url : String, httpclient : org.apache.http.client.HttpClient) {
 	    val response = httpclient.execute(get)
 	    
 	    if (response != null) {
-	      return response.getEntity().getContentLength().toString
+	      return contentSize(response.getEntity().getContent()).toString
 	    } else {
 	      return ERROR_RESPONSE
 	    }
@@ -27,4 +27,14 @@ class Webpage(url : String, httpclient : org.apache.http.client.HttpClient) {
       case e : Exception => return ERROR_RESPONSE
     }
   }
+  
+  private def contentSize(input : java.io.InputStream) : Int = {
+    var count = 0;
+    
+    while (input.read() != -1) {count += 1}
+    
+    return count
+  }
+  
+  override def toString() : String = url
 }

@@ -5,6 +5,7 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.GivenWhenThen
 import org.scalamock.scalatest.MockFactory
 import org.scalamock.ProxyMockFactory
+import scala.collection.mutable.ArrayBuffer
 
 class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with MockFactory with ProxyMockFactory {
 
@@ -13,6 +14,11 @@ class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with M
   val httpresponse = mock[org.apache.http.HttpResponse]
   
   val testSubject = new Webpage("www.google.co.uk", httpclient)
+  
+  def createInputStreamWithXBytes(x : Int) : java.io.InputStream = {
+    val dataReturned = new Array[Byte](x)
+    return new java.io.ByteArrayInputStream(dataReturned);
+  }
   
   "A webpage" should "perform a get request to the correct URL" in {
     given("httpclient expects a get method with the correct URI")
@@ -46,7 +52,7 @@ class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with M
     
     given("the http response has a size")
     val entity = mock[org.apache.http.HttpEntity]
-    entity expects 'getContentLength returning 123456l
+    entity expects 'getContent returning createInputStreamWithXBytes(123456)
     httpresponse expects 'getEntity returning entity
 
     when("a download is performed")
