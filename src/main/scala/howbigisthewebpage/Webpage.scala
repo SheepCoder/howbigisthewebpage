@@ -31,7 +31,13 @@ class Webpage (url : String, httpclient : org.apache.http.client.HttpClient) ext
   private def contentSize(input : java.io.InputStream) : Int = {
     var count = 0;
     
-    while (input.read() != -1) {count += 1}
+    val buffer = new Array[Byte](1000)
+    var bytesRead = 0
+    
+    while (bytesRead != -1) {
+      count += bytesRead
+      bytesRead = input.read(buffer)
+    }
     
     return count
   }
