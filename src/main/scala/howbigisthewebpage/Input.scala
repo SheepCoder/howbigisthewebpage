@@ -14,12 +14,20 @@ class Input {
    */
   def size() : Int = sites.size
   
+  
+  /**
+   * Converts a java reader into a BufferedInput and uses the overloaded read method
+   */
+  def read(reader: java.io.Reader) : Any = {
+    val buffer = createBufferedReader(reader);
+    read(buffer);
+  }
+  
   /**
    * Reads from the given input one line at a time, each line is considered a site.
    * Will continue to read until a line contains "-1".
    */
-  def read(reader: java.io.Reader) = {
-    val buffer = createBufferedReader(reader);
+  def read(buffer : BufferedInput) = {
     var line : String = buffer.readLine()
     
     while (line != null && !"-1".equals(line)) {
@@ -28,7 +36,9 @@ class Input {
     }
   }
   
-  private def createBufferedReader(reader : java.io.Reader) : java.io.BufferedReader = new java.io.BufferedReader(reader)
+  private def createBufferedReader(reader : java.io.Reader) : BufferedInput = {
+    new java.io.BufferedReader(reader) with BufferedInput
+  }
   
   /**
    * Return the site at the given index.
