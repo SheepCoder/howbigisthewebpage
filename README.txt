@@ -13,7 +13,12 @@ The application is built with sbt. See http://www.scala-sbt.org/ for more detail
 Tests can be run with the command:
 sbt test
 
-Running
+Viewing in Eclipse
+------------------
+The eclipse project files can be rebuilt using
+sbt eclipse
+
+Running 
 --------
 The application can be run using the command:
 sbt run
