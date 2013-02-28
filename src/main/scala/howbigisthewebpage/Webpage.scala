@@ -3,7 +3,7 @@ package howbigisthewebpage
 /**
  * Represents a webpage in the system.  Created with the URL (minus protocol) and an apache commons httpclient
  */
-class Webpage(url : String, httpclient : org.apache.http.client.HttpClient) {
+class Webpage (url : String, httpclient : org.apache.http.client.HttpClient) extends Object with Download {
   /**
    * The error response from the download method.
    */

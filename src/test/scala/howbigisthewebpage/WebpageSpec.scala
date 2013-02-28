@@ -83,4 +83,12 @@ class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with M
     then("the returned value should be \"*\"")
     pagesize should equal ("*")
   }
+  
+  it should "return the url for toString" in {
+    when("toString is called")
+    val s = testSubject.toString
+    
+    then("the value should be the url")
+    s should equal ("www.google.co.uk")
+  }
 }
