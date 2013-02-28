@@ -13,6 +13,11 @@ The application is built with sbt. See http://www.scala-sbt.org/ for more detail
 Tests can be run with the command:
 sbt test
 
+Eclipse
+-------
+To recreate the eclipse project files run:
+sbt eclipse
+
 Running
 --------
 The application can be run using the command:
