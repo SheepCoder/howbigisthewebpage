@@ -30,8 +30,8 @@ object HowBigIsIt {
   private def newHttpClient : org.apache.http.client.HttpClient = {
     val client = new org.apache.http.impl.client.DefaultHttpClient
     val connectionParams = client.getParams()
-    org.apache.http.params.HttpConnectionParams.setConnectionTimeout(connectionParams, 500);
-    org.apache.http.params.HttpConnectionParams.setSoTimeout(connectionParams, 900);
+    org.apache.http.params.HttpConnectionParams.setConnectionTimeout(connectionParams, 400);
+    org.apache.http.params.HttpConnectionParams.setSoTimeout(connectionParams, 600);
     return client
   }
 
