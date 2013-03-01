@@ -22,9 +22,17 @@ object HowBigIsIt {
       new DownloadFactory {
         def newDownload(url: String): Download = {
           // need to create a new httpclient for each call as not multi-threaded
-          return new Webpage(url, new org.apache.http.impl.client.DefaultHttpClient)
+          return new Webpage(url, newHttpClient)
         }
       })
+  }
+  
+  private def newHttpClient : org.apache.http.client.HttpClient = {
+    val client = new org.apache.http.impl.client.DefaultHttpClient
+    val connectionParams = client.getParams()
+    org.apache.http.params.HttpConnectionParams.setConnectionTimeout(connectionParams, 500);
+    org.apache.http.params.HttpConnectionParams.setSoTimeout(connectionParams, 900);
+    return client
   }
 
   /**
