@@ -4,6 +4,9 @@ import org.scalatest.FlatSpec
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.GivenWhenThen
 
+/**
+ * Unit tests for the Input class.
+ */
 class InputSpec extends FlatSpec with ShouldMatchers with GivenWhenThen {
 
   "An Input" should "read a web address" in {

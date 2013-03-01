@@ -1,7 +1,7 @@
 package howbigisthewebpage
 
 /**
- * Creates instances of webpages
+ * Creates instances of downloadable items
  */
 trait DownloadFactory {
   /**

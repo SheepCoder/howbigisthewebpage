@@ -7,5 +7,5 @@ trait BufferedInput {
   /**
    * Read a line of text and return it.
    */
-	def readLine() : String
+  def readLine(): String
 }

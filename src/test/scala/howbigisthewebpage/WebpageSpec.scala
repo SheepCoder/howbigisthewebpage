@@ -7,6 +7,9 @@ import org.scalamock.scalatest.MockFactory
 import org.scalamock.ProxyMockFactory
 import scala.collection.mutable.ArrayBuffer
 
+/**
+ * Unit tests for the Webpage class.
+ */
 class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with MockFactory with ProxyMockFactory {
 
   val httpclient = mock[org.apache.http.client.HttpClient]
@@ -15,7 +18,10 @@ class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with M
   
   val testSubject = new Webpage("www.google.co.uk", httpclient)
   
-  def createInputStreamWithXBytes(x : Int) : java.io.InputStream = {
+  /**
+   * Create an input stream with the given number of bytes of data.
+   */
+  private def createInputStreamWithXBytes(x : Int) : java.io.InputStream = {
     val dataReturned = new Array[Byte](x)
     return new java.io.ByteArrayInputStream(dataReturned);
   }
@@ -30,7 +36,7 @@ class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with M
     testSubject.download
     
     then("the http host is google.co.uk")
-    // from the stubbing above
+    // see the expecation on httpclient above
   }
   
   it should "use http to perform requests" in {
@@ -43,7 +49,7 @@ class WebpageSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with M
     testSubject.download
     
     then("the protocol is http")
-    // from the stubbing above
+    // see the expecation on httpclient above
   }
   
   it should "return the size of the webpage downloaded" in {

@@ -6,6 +6,9 @@ import org.scalatest.GivenWhenThen
 import org.scalamock.scalatest.MockFactory
 import org.scalamock.ProxyMockFactory
 
+/**
+ * Component tests for the application confirming components are operating correctly together.
+ */
 class HowBigIsItSpec extends FlatSpec with ShouldMatchers with GivenWhenThen with MockFactory with ProxyMockFactory  {
 
   val mockWebpageFactory = mock[DownloadFactory]

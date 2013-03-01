@@ -27,6 +27,9 @@ object HowBigIsIt {
       })
   }
   
+  /**
+   * Create a new apache commons http client configuring any parameters required (e.g. timeouts)
+   */
   private def newHttpClient : org.apache.http.client.HttpClient = {
     val client = new org.apache.http.impl.client.DefaultHttpClient
     val connectionParams = client.getParams()
@@ -36,7 +39,10 @@ object HowBigIsIt {
   }
 
   /**
-   * Perform the required application logic
+   * Perform the required application logic:
+   * - Read in websites entered by user
+   * - download content from given websites
+   * - print out content size of given websites
    */
   def execute(input: BufferedInput, output: LinePrinter, downloads: DownloadFactory) = {
     val inputReader = new Input
