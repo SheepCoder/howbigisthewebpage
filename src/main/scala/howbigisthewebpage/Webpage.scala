@@ -16,6 +16,7 @@ class Webpage (url : String, httpclient : org.apache.http.client.HttpClient) ext
   def download : String = {
     try {
 	    val get = new org.apache.http.client.methods.HttpGet("http://" + url)
+	    
 	    val response = httpclient.execute(get)
 	    
 	    if (response != null) {
@@ -29,17 +30,17 @@ class Webpage (url : String, httpclient : org.apache.http.client.HttpClient) ext
   }
   
   private def contentSize(input : java.io.InputStream) : Int = {
-    var count = 0;
+    var totalBytesRead = 0;
     
     val buffer = new Array[Byte](1000)
     var bytesRead = 0
     
     while (bytesRead != -1) {
-      count += bytesRead
+      totalBytesRead += bytesRead
       bytesRead = input.read(buffer)
     }
     
-    return count
+    return totalBytesRead
   }
   
   override def toString() : String = url
